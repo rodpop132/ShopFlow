@@ -70,7 +70,7 @@ const Landing = () => {
       <nav className="border-b border-border backdrop-blur-sm bg-background/80 sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <span className="font-heading text-xl font-bold">SalãoPro</span>
@@ -358,12 +358,12 @@ const Landing = () => {
 
       {/* CTA Section */}
       <section className="container mx-auto px-4 py-12 md:py-20">
-        <Card className="max-w-4xl mx-auto p-8 md:p-12 bg-gradient-primary text-white border-0 shadow-glow scroll-reveal">
+        <Card className="max-w-4xl mx-auto p-8 md:p-12 gradient-primary text-white border-0 shadow-glow scroll-reveal">
           <div className="text-center">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 drop-shadow-lg">
               Começa hoje, grátis durante 14 dias
             </h2>
-            <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto">
+            <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto drop-shadow">
               Junta-te a centenas de salões que já transformaram o negócio.
               Sem cartão necessário, sem compromisso.
             </p>
@@ -382,7 +382,7 @@ const Landing = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <span className="font-heading text-xl font-bold">SalãoPro</span>
@@ -398,3 +398,4 @@ const Landing = () => {
 };
 
 export default Landing;
+

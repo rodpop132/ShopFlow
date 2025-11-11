@@ -8,10 +8,10 @@ import { Search, Plus, Phone, Mail, Star } from "lucide-react";
 
 const Clientes = () => {
   const clients = [
-    { id: 1, name: "João Silva", phone: "+351 912 345 678", email: "joao@email.com", visits: 12, spent: "€340", tags: ["VIP", "Fiel"], lastVisit: "Há 3 dias" },
-    { id: 2, name: "Maria Santos", phone: "+351 913 456 789", email: "maria@email.com", visits: 8, spent: "€280", tags: ["Fiel"], lastVisit: "Há 1 semana" },
-    { id: 3, name: "Pedro Costa", phone: "+351 914 567 890", email: "pedro@email.com", visits: 5, spent: "€145", tags: ["Novo"], lastVisit: "Há 2 semanas" },
-    { id: 4, name: "Ana Ferreira", phone: "+351 915 678 901", email: "ana@email.com", visits: 15, spent: "€420", tags: ["VIP"], lastVisit: "Ontem" },
+    { id: 1, name: "João Silva", phone: "+351 912 345 678", email: "joao@email.com", visits: 12, spent: "R$ 340", tags: ["VIP", "Fiel"], lastVisit: "Há 3 dias" },
+    { id: 2, name: "Maria Santos", phone: "+351 913 456 789", email: "maria@email.com", visits: 8, spent: "R$ 280", tags: ["Fiel"], lastVisit: "Há 1 semana" },
+    { id: 3, name: "Pedro Costa", phone: "+351 914 567 890", email: "pedro@email.com", visits: 5, spent: "R$ 145", tags: ["Novo"], lastVisit: "Há 2 semanas" },
+    { id: 4, name: "Ana Ferreira", phone: "+351 915 678 901", email: "ana@email.com", visits: 15, spent: "R$ 420", tags: ["VIP"], lastVisit: "Ontem" },
   ];
 
   return (
@@ -58,7 +58,7 @@ const Clientes = () => {
           </Card>
           <Card className="p-4">
             <p className="text-sm text-muted-foreground mb-1">LTV Médio</p>
-            <p className="text-3xl font-bold">€285</p>
+            <p className="text-3xl font-bold">R$ 285</p>
           </Card>
         </div>
 

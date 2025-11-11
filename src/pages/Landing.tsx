@@ -243,7 +243,7 @@ const Landing = () => {
               <div className="mb-6">
                 <h3 className="font-heading text-2xl font-bold mb-2">Grátis</h3>
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-4xl md:text-5xl font-bold">€0</span>
+                  <span className="text-4xl md:text-5xl font-bold">R$0</span>
                   <span className="text-muted-foreground">/mês</span>
                 </div>
                 <p className="text-sm text-muted-foreground">
@@ -254,11 +254,11 @@ const Landing = () => {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Até 3 membros da equipa</span>
+                  <span className="text-sm">Apenas 1 membro da equipa</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">50 marcações/mês</span>
+                  <span className="text-sm">25 marcações/mês</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
@@ -298,7 +298,7 @@ const Landing = () => {
               <div className="mb-6">
                 <h3 className="font-heading text-2xl font-bold mb-2">Pro</h3>
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-4xl md:text-5xl font-bold">€47,99</span>
+                  <span className="text-4xl md:text-5xl font-bold">R$47,99</span>
                   <span className="text-muted-foreground">/mês</span>
                 </div>
                 <p className="text-sm text-muted-foreground">

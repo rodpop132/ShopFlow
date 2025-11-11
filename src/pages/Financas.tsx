@@ -16,10 +16,10 @@ const Financas = () => {
   ];
 
   const expenses = [
-    { id: 1, description: "Aluguer do espaço", amount: "€800", category: "Fixo", date: "01/06/2025" },
-    { id: 2, description: "Produtos (shampoo, gel)", amount: "€240", category: "Variável", date: "03/06/2025" },
-    { id: 3, description: "Eletricidade + Água", amount: "€120", category: "Fixo", date: "05/06/2025" },
-    { id: 4, description: "Marketing Instagram", amount: "€80", category: "Marketing", date: "10/06/2025" },
+    { id: 1, description: "Aluguer do espaço", amount: "R$ 800", category: "Fixo", date: "01/06/2025" },
+    { id: 2, description: "Produtos (shampoo, gel)", amount: "R$ 240", category: "Variável", date: "03/06/2025" },
+    { id: 3, description: "Eletricidade + Água", amount: "R$ 120", category: "Fixo", date: "05/06/2025" },
+    { id: 4, description: "Marketing Instagram", amount: "R$ 80", category: "Marketing", date: "10/06/2025" },
   ];
 
   return (
@@ -52,7 +52,7 @@ const Financas = () => {
               <p className="text-sm text-muted-foreground">Receita (Mês)</p>
               <TrendingUp className="w-5 h-5 text-success" />
             </div>
-            <p className="text-3xl font-bold mb-1">€4.900</p>
+            <p className="text-3xl font-bold mb-1">R$ 4.900</p>
             <p className="text-sm text-success">+8% vs. mês anterior</p>
           </Card>
 
@@ -61,7 +61,7 @@ const Financas = () => {
               <p className="text-sm text-muted-foreground">Despesas (Mês)</p>
               <TrendingDown className="w-5 h-5 text-error" />
             </div>
-            <p className="text-3xl font-bold mb-1">€2.950</p>
+            <p className="text-3xl font-bold mb-1">R$ 2.950</p>
             <p className="text-sm text-muted-foreground">+3% vs. mês anterior</p>
           </Card>
 
@@ -70,7 +70,7 @@ const Financas = () => {
               <p className="text-sm text-white/90">Lucro (Mês)</p>
               <TrendingUp className="w-5 h-5 text-white" />
             </div>
-            <p className="text-3xl font-bold mb-1">€1.950</p>
+            <p className="text-3xl font-bold mb-1">R$ 1.950</p>
             <p className="text-sm text-white/90">+14% vs. mês anterior</p>
           </Card>
 

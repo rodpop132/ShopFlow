@@ -30,7 +30,7 @@ const Dashboard = () => {
   const kpis = [
     {
       title: "Receita do Mês",
-      value: "€4.850",
+      value: "R$ 4.850",
       change: "+12%",
       trend: "up" as const,
       icon: DollarSign,
@@ -38,7 +38,7 @@ const Dashboard = () => {
     },
     {
       title: "Lucro",
-      value: "€2.940",
+      value: "R$ 2.940",
       change: "+8%",
       trend: "up" as const,
       icon: TrendingUp,
@@ -104,7 +104,7 @@ const Dashboard = () => {
     },
     {
       type: "info",
-      message: "Despesa recorrente: Aluguer (€800) amanhã"
+      message: "Despesa recorrente: Aluguer (R$ 800) amanhã"
     }
   ];
 
@@ -274,7 +274,7 @@ const Dashboard = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm">Ticket Médio</span>
-                  <span className="font-semibold text-primary">€28.90</span>
+                    <span className="font-semibold text-primary">R$ 28,90</span>
                 </div>
               </div>
             </div>

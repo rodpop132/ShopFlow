@@ -91,7 +91,7 @@ const Mensagens = () => {
               <Clock className="w-5 h-5 text-warning" />
               <p className="text-sm text-muted-foreground">Custo Médio</p>
             </div>
-            <p className="text-3xl font-bold">€0.04</p>
+            <p className="text-3xl font-bold">R$ 0,04</p>
           </Card>
         </div>
 

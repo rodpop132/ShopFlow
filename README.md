@@ -20,6 +20,16 @@ If you want to work locally using your own IDE, you can clone this repo and push
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
+### Environment variables
+
+Copy `.env.example` to `.env` and ajust the API URL if necessary:
+
+```sh
+cp .env.example .env
+```
+
+By default the frontend calls `http://104.234.236.68:30067`, which matches the SalãoPro backend shared acima. Se o endpoint mudar, basta atualizar `VITE_API_URL`.
+
 Follow these steps:
 
 ```sh

@@ -13,7 +13,9 @@ import {
   Settings,
   Sparkles,
   X,
-  Menu
+  Menu,
+  ClipboardList,
+  TrendingDown
 } from "lucide-react";
 import { useState } from "react";
 
@@ -25,6 +27,7 @@ const Sidebar = () => {
       title: "Principal",
       items: [
         { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
+        { icon: ClipboardList, label: "Área de Trabalho", href: "/area-trabalho" },
         { icon: Calendar, label: "Calendário", href: "/calendario" },
         { icon: Users, label: "Clientes", href: "/clientes" },
         { icon: Scissors, label: "Serviços", href: "/servicos" },
@@ -34,6 +37,7 @@ const Sidebar = () => {
       title: "Gestão",
       items: [
         { icon: DollarSign, label: "Finanças", href: "/financas" },
+        { icon: TrendingDown, label: "Despesas", href: "/despesas" },
         { icon: MessageSquare, label: "Mensagens", href: "/mensagens" },
         { icon: Package, label: "Inventário", href: "/inventario" },
       ]

@@ -43,6 +43,45 @@ const Landing = () => {
     { icon: CheckCircle, text: "Sistema de fidelização incluído" }
   ];
 
+  const productPages = [
+    {
+      title: "Área de Trabalho",
+      description: "Organiza tarefas, campanhas e comunicação num único painel.",
+      href: "/area-trabalho",
+      tag: "Equipa"
+    },
+    {
+      title: "Gestão de Despesas",
+      description: "Controla pagamentos, recorrências e impacto em tempo real.",
+      href: "/despesas",
+      tag: "Financeiro"
+    },
+    {
+      title: "Calendário Inteligente",
+      description: "Agenda com confirmações automáticas e sincronização WhatsApp.",
+      href: "/calendario",
+      tag: "Agenda"
+    },
+    {
+      title: "Serviços e Pacotes",
+      description: "Define preços, cria add-ons e destaca os serviços mais vendidos.",
+      href: "/servicos",
+      tag: "Catálogo"
+    },
+    {
+      title: "Inventário em tempo real",
+      description: "Alertas de stock, custo por serviço e reposição automática.",
+      href: "/inventario",
+      tag: "Operações"
+    },
+    {
+      title: "Definições e integrações",
+      description: "Personaliza notificações, pagamentos e dados do salão.",
+      href: "/definicoes",
+      tag: "Configurações"
+    }
+  ];
+
   const testimonials = [
     {
       name: "Carlos Silva",
@@ -187,6 +226,42 @@ const Landing = () => {
                 </div>
                 <p className="text-lg font-medium">{feature.text}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Product Pages */}
+      <section className="container mx-auto px-4 py-12 md:py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 md:mb-16 scroll-reveal">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              Explora cada área do SalãoPro
+            </h2>
+            <p className="text-lg md:text-xl text-foreground/70">
+              Liga-te directamente às páginas do produto e vê como funciona na prática.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {productPages.map((page, index) => (
+              <Card
+                key={page.title}
+                className="p-6 flex flex-col gap-4 hover:shadow-lg transition-all scroll-reveal"
+                style={{ transitionDelay: `${index * 60}ms` }}
+              >
+                <Badge className="w-fit bg-primary/10 text-primary">{page.tag}</Badge>
+                <div>
+                  <h3 className="font-heading text-2xl mb-2">{page.title}</h3>
+                  <p className="text-muted-foreground">{page.description}</p>
+                </div>
+                <Link to={page.href} className="mt-auto">
+                  <Button variant="ghost" className="p-0 text-primary hover:text-primary-hover">
+                    Explorar página
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+              </Card>
             ))}
           </div>
         </div>

@@ -1,471 +1,379 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, CheckCircle, TrendingUp, Users, Clock, Sparkles, ArrowRight, Star, X, Check } from "lucide-react";
-import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  BarChart3,
+  Calendar,
+  CheckCircle2,
+  Clock,
+  GitBranch,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  TrendingUp,
+  Users,
+  Users2,
+} from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useEffect } from "react";
+
+const heroStats = [
+  { label: "Salões em operação", value: "+180" },
+  { label: "Mensagens automatizadas/mês", value: "32k" },
+  { label: "Redução média de no-shows", value: "−68%" },
+];
+
+const benefits = [
+  {
+    icon: Calendar,
+    title: "+35% de marcações online",
+    description: "Link próprio para Instagram, WhatsApp e Google Business em menos de 5 min.",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Confirmações automáticas",
+    description: "WhatsApp, SMS e e-mail com um toque para confirmar ou reagendar.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Lucro por profissional",
+    description: "Receitas, custos e comissões lado a lado para cada colaborador.",
+  },
+];
+
+const features = [
+  { icon: Users2, text: "CRM completo com histórico e tags inteligentes" },
+  { icon: Clock, text: "Agenda drag & drop com bloqueios e listas de espera" },
+  { icon: GitBranch, text: "Automação de workflows (aniversário, inativos, campanhas)" },
+  { icon: ShieldCheck, text: "Painel admin com controlo de acessos e auditoria" },
+  { icon: BarChart3, text: "Dashboards financeiros, KPIs e previsão de caixa" },
+  { icon: Sparkles, text: "Página de reservas com tema personalizável" },
+];
+
+const productPages = [
+  {
+    title: "Área de Trabalho",
+    description: "Organiza tarefas, campanhas e comunicação num único painel colaborativo.",
+    href: "/area-trabalho",
+    tag: "Equipe",
+  },
+  {
+    title: "Calendário Inteligente",
+    description: "Confirmações automáticas, bloqueio de horários e integração com WhatsApp.",
+    href: "/calendario",
+    tag: "Agenda",
+  },
+  {
+    title: "Gestão de Despesas",
+    description: "Controla pagamentos recorrentes, recibos e impacto no fluxo de caixa.",
+    href: "/despesas",
+    tag: "Financeiro",
+  },
+  {
+    title: "Painel Admin",
+    description: "Consulta utilizadores, permissionamento e métricas globais num só lugar.",
+    href: "/admin",
+    tag: "Administração",
+  },
+  {
+    title: "Serviços & Pacotes",
+    description: "Define preços, cria add-ons e destaca serviços mais vendidos.",
+    href: "/servicos",
+    tag: "Catálogo",
+  },
+  {
+    title: "Inventário em tempo real",
+    description: "Alertas de stock, custos por serviço e reposição automática.",
+    href: "/inventario",
+    tag: "Operações",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Carlos Lima",
+    role: "Founder @ The Barber Porto",
+    content:
+      "Automatizámos confirmações, e os no-shows caíram para 4%. A equipa ganhou confiança e eu ganho visibilidade em tempo real.",
+    rating: 5,
+  },
+  {
+    name: "Ana Ribeiro",
+    role: "CEO @ Studio Aura Lisboa",
+    content:
+      "O painel admin dá-me controlo total: vejo faturação, permissões e fluxo de caixa em segundos. Não vivo mais sem.",
+    rating: 5,
+  },
+  {
+    name: "Miguel Santos",
+    role: "Gestor @ Glow Bar Brasília",
+    content:
+      "Integrei pagamentos Pix, uso as mensagens prontas e consegui crescer 28% em 3 meses. Interface simples e linda.",
+    rating: 5,
+  },
+];
+
+const freePlanFeatures = [
+  "1 membro da equipa",
+  "25 marcações/mês",
+  "Landing de reservas",
+  "WhatsApp básico",
+];
+
+const proPlanFeatures = [
+  "Até 10 membros (extra sob demanda)",
+  "Marcações ilimitadas",
+  "Automação avançada",
+  "Painel admin, inventário e API",
+];
 
 const Landing = () => {
   useScrollReveal();
 
   useEffect(() => {
-    // Add revealed class to hero elements immediately
-    const heroElements = document.querySelectorAll('.hero-animate');
-    heroElements.forEach((el, idx) => {
-      setTimeout(() => el.classList.add('revealed'), idx * 100);
+    const heroElements = document.querySelectorAll(".hero-animate");
+    heroElements.forEach((el, index) => {
+      setTimeout(() => el.classList.add("revealed"), index * 120);
     });
   }, []);
-  const benefits = [
-    {
-      icon: Calendar,
-      title: "+30% marcações online",
-      description: "Link direto partilhável no Instagram, Google Maps e WhatsApp"
-    },
-    {
-      icon: CheckCircle,
-      title: "−60% no-shows",
-      description: "Lembretes automáticos por WhatsApp com confirmação 1-toque"
-    },
-    {
-      icon: TrendingUp,
-      title: "Lucro por profissional",
-      description: "Vê receitas, despesas, comissões e lucro real de cada um"
-    }
-  ];
-
-  const features = [
-    { icon: Calendar, text: "Calendário inteligente com drag & drop" },
-    { icon: Users, text: "CRM completo de clientes" },
-    { icon: TrendingUp, text: "Dashboard financeiro em tempo real" },
-    { icon: Clock, text: "Lembretes automáticos WhatsApp" },
-    { icon: Sparkles, text: "Página de reservas personalizável" },
-    { icon: CheckCircle, text: "Sistema de fidelização incluído" }
-  ];
-
-  const productPages = [
-    {
-      title: "Área de Trabalho",
-      description: "Organiza tarefas, campanhas e comunicação num único painel.",
-      href: "/area-trabalho",
-      tag: "Equipa"
-    },
-    {
-      title: "Gestão de Despesas",
-      description: "Controla pagamentos, recorrências e impacto em tempo real.",
-      href: "/despesas",
-      tag: "Financeiro"
-    },
-    {
-      title: "Calendário Inteligente",
-      description: "Agenda com confirmações automáticas e sincronização WhatsApp.",
-      href: "/calendario",
-      tag: "Agenda"
-    },
-    {
-      title: "Serviços e Pacotes",
-      description: "Define preços, cria add-ons e destaca os serviços mais vendidos.",
-      href: "/servicos",
-      tag: "Catálogo"
-    },
-    {
-      title: "Inventário em tempo real",
-      description: "Alertas de stock, custo por serviço e reposição automática.",
-      href: "/inventario",
-      tag: "Operações"
-    },
-    {
-      title: "Definições e integrações",
-      description: "Personaliza notificações, pagamentos e dados do salão.",
-      href: "/definicoes",
-      tag: "Configurações"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Carlos Silva",
-      role: "Dono, Barber Shop Porto",
-      content: "Reduzi os no-shows de 30% para menos de 5%. O WhatsApp automático faz toda a diferença.",
-      rating: 5
-    },
-    {
-      name: "Ana Martins",
-      role: "Gestora, Salão Lisboa",
-      content: "Finalmente consigo ver o lucro real. Antes só via faturação, agora sei exatamente quanto ganho.",
-      rating: 5
-    },
-    {
-      name: "Miguel Costa",
-      role: "Barbeiro, Coimbra",
-      content: "80% das marcações vêm do link no Instagram. Já não atendo telefone para agendar!",
-      rating: 5
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
       <nav className="border-b border-border backdrop-blur-sm bg-background/80 sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white">
+              <Sparkles className="w-5 h-5" />
             </div>
             <span className="font-heading text-xl font-bold">SalãoPro</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/auth">
-              <Button variant="ghost">Entrar</Button>
+            <Link to="/admin">
+              <Button variant="ghost" className="hidden md:inline-flex">
+                Painel Admin
+              </Button>
             </Link>
             <Link to="/auth">
-              <Button className="bg-primary hover:bg-primary-hover">
-                Experimentar grátis
-              </Button>
+              <Button variant="outline">Entrar</Button>
+            </Link>
+            <Link to="/auth">
+              <Button className="bg-primary hover:bg-primary-hover">Experimentar grátis</Button>
             </Link>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-12 md:py-24">
-        <div className="max-w-4xl mx-auto text-center">
-          <Badge className="mb-6 bg-accent/10 text-accent border-accent/20 hover:bg-accent/20 scroll-reveal hero-animate text-sm md:text-base">
-            ✨ Experimentar 14 dias grátis — sem cartão
+      {/* Hero */}
+      <section className="container mx-auto px-4 py-14 md:py-24">
+        <div className="max-w-5xl mx-auto text-center">
+          <Badge className="mb-6 bg-accent/10 text-accent border-accent/20 hero-animate">
+            14 dias grátis · Sem cartão · Suporte humano
           </Badge>
-          
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight scroll-reveal hero-animate">
-            Agenda cheia,
-            <br />
-            zero no-shows
+          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight hero-animate">
+            Agenda cheia, finanças claras e um painel admin que governa tudo.
           </h1>
-          
-          <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto scroll-reveal hero-animate">
-            Marcações, lembretes WhatsApp e finanças claras num único painel.
-            Feito para salões e barbearias em Portugal.
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 hero-animate max-w-3xl mx-auto">
+            O software completo para salões, barbearias e estúdios de beleza que querem crescer com dados, automações
+            e experiência premium — de Portugal ao Brasil.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 scroll-reveal hero-animate">
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center hero-animate">
             <Link to="/auth" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary-hover text-base md:text-lg px-6 md:px-8 h-12 md:h-14 shadow-glow">
-                Experimentar 14 dias grátis
-                <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
+              <Button size="lg" className="w-full sm:w-auto h-12 md:h-14 text-base md:text-lg shadow-glow">
+                Começar agora
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
             <a href="#pricing" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto text-base md:text-lg px-6 md:px-8 h-12 md:h-14">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 md:h-14 text-base md:text-lg">
                 Ver planos
               </Button>
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-xs md:text-sm text-muted-foreground scroll-reveal hero-animate">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-success flex-shrink-0" />
-              <span>Sem cartão necessário</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-success flex-shrink-0" />
-              <span>Configuração em 5 minutos</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-success flex-shrink-0" />
-              <span>Suporte em português</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="container mx-auto px-4 py-12 md:py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 md:mb-16 scroll-reveal">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Resultados reais dos nossos clientes
-            </h2>
-            <p className="text-lg md:text-xl text-foreground/70">
-              Salões como o teu já transformaram o negócio
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="p-6 md:p-8 hover:shadow-lg transition-all hover:scale-105 bg-gradient-hero backdrop-blur-sm border-2 scroll-reveal" style={{ transitionDelay: `${index * 0.1}s` }}>
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                  <benefit.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="font-heading text-2xl font-bold mb-3">
-                  {benefit.title}
-                </h3>
-                <p className="text-muted-foreground text-lg">
-                  {benefit.description}
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 hero-animate">
+            {heroStats.map((stat) => (
+              <Card key={stat.label} className="p-6 bg-gradient-hero border-0">
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
+                <p className="text-3xl font-bold mt-2">{stat.value}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* Benefits */}
       <section className="container mx-auto px-4 py-12 md:py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 md:mb-16 scroll-reveal">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Tudo o que precisas, num só lugar
-            </h2>
-            <p className="text-lg md:text-xl text-foreground/70">
-              Feito especificamente para salões e barbearias
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {features.map((feature, index) => (
-              <div key={index} className="flex items-start gap-4 p-4 md:p-6 rounded-2xl hover:bg-muted/50 transition-all hover:scale-105 scroll-reveal">
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <feature.icon className="w-5 h-5 text-accent" />
-                </div>
-                <p className="text-lg font-medium">{feature.text}</p>
+        <div className="max-w-6xl mx-auto text-center mb-12">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Resultados comprovados no primeiro mês</h2>
+          <p className="text-lg md:text-xl text-muted-foreground">Automatiza a operação e mantém a equipa produtiva.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {benefits.map((benefit, index) => (
+            <Card key={benefit.title} className="p-6 hover:shadow-xl transition-all scroll-reveal" style={{ transitionDelay: `${index * 100}ms` }}>
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <benefit.icon className="w-6 h-6" />
               </div>
-            ))}
-          </div>
+              <h3 className="font-heading text-2xl mb-2">{benefit.title}</h3>
+              <p className="text-muted-foreground">{benefit.description}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="container mx-auto px-4 py-12 md:py-20">
+        <div className="max-w-6xl mx-auto text-center mb-12">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Tudo o que precisas num único ecossistema</h2>
+          <p className="text-lg md:text-xl text-muted-foreground">
+            Dados em tempo real, automação omnichannel e um painel admin seguro para governares todo o negócio.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {features.map((feature, index) => (
+            <Card key={feature.text} className="p-5 flex items-start gap-4 scroll-reveal" style={{ transitionDelay: `${index * 80}ms` }}>
+              <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
+                <feature.icon className="w-5 h-5" />
+              </div>
+              <p className="text-base font-semibold">{feature.text}</p>
+            </Card>
+          ))}
         </div>
       </section>
 
       {/* Product Pages */}
       <section className="container mx-auto px-4 py-12 md:py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 md:mb-16 scroll-reveal">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Explora cada área do SalãoPro
-            </h2>
-            <p className="text-lg md:text-xl text-foreground/70">
-              Liga-te directamente às páginas do produto e vê como funciona na prática.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {productPages.map((page, index) => (
-              <Card
-                key={page.title}
-                className="p-6 flex flex-col gap-4 hover:shadow-lg transition-all scroll-reveal"
-                style={{ transitionDelay: `${index * 60}ms` }}
-              >
-                <Badge className="w-fit bg-primary/10 text-primary">{page.tag}</Badge>
-                <div>
-                  <h3 className="font-heading text-2xl mb-2">{page.title}</h3>
-                  <p className="text-muted-foreground">{page.description}</p>
-                </div>
-                <Link to={page.href} className="mt-auto">
-                  <Button variant="ghost" className="p-0 text-primary hover:text-primary-hover">
-                    Explorar página
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
-              </Card>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto text-center mb-12">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Explora cada página do SalãoPro</h2>
+          <p className="text-lg md:text-xl text-muted-foreground">
+            Salta directamente para as áreas que vais usar no dia a dia — da equipa ao financeiro.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {productPages.map((page, index) => (
+            <Card key={page.title} className="p-6 flex flex-col gap-3 hover:shadow-lg transition-all scroll-reveal" style={{ transitionDelay: `${index * 70}ms` }}>
+              <Badge className="w-fit bg-primary/10 text-primary">{page.tag}</Badge>
+              <h3 className="font-heading text-2xl">{page.title}</h3>
+              <p className="text-muted-foreground flex-1">{page.description}</p>
+              <Link to={page.href}>
+                <Button variant="ghost" className="p-0 text-primary hover:text-primary-hover">
+                  Abrir página
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </Card>
+          ))}
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="container mx-auto px-4 py-12 md:py-20 bg-gradient-hero">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 md:mb-16 scroll-reveal">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Adorado por profissionais
-            </h2>
-            <p className="text-lg md:text-xl text-foreground/70">
-              Vê o que dizem salões e barbearias em Portugal
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6 md:p-8 hover:shadow-lg transition-all hover:scale-105 scroll-reveal">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-warning text-warning" />
-                  ))}
-                </div>
-                <p className="text-lg mb-6 text-foreground/90">
-                  "{testimonial.content}"
-                </p>
-                <div>
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
+      <section className="container mx-auto px-4 py-12 md:py-20 bg-muted/30">
+        <div className="max-w-6xl mx-auto text-center mb-12">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Profissionais que já lideram com o SalãoPro</h2>
+          <p className="text-lg md:text-xl text-muted-foreground">Histórias reais de Portugal e Brasil.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <Card key={testimonial.name} className="p-6 scroll-reveal" style={{ transitionDelay: `${index * 100}ms` }}>
+              <div className="flex gap-1 mb-4">
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-warning fill-warning" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-4">“{testimonial.content}”</p>
+              <div>
+                <p className="font-semibold">{testimonial.name}</p>
+                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+              </div>
+            </Card>
+          ))}
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing */}
       <section id="pricing" className="container mx-auto px-4 py-12 md:py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 md:mb-16 scroll-reveal">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Planos simples e transparentes
-            </h2>
-            <p className="text-lg md:text-xl text-foreground/70">
-              Experimenta 14 dias grátis. Sem cartão necessário.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-            {/* Free Plan */}
-            <Card className="p-6 md:p-8 hover:shadow-lg transition-all scroll-reveal">
-              <div className="mb-6">
-                <h3 className="font-heading text-2xl font-bold mb-2">Grátis</h3>
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-4xl md:text-5xl font-bold">R$0</span>
-                  <span className="text-muted-foreground">/mês</span>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Perfeito para começar e testar
-                </p>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Apenas 1 membro da equipa</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">25 marcações/mês</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Lembretes básicos WhatsApp</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Dashboard básico</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <X className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-muted-foreground">Relatórios avançados</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <X className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-muted-foreground">Templates personalizados</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <X className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-muted-foreground">Sistema de fidelização</span>
-                </li>
-              </ul>
-
-              <Link to="/auth" className="block">
-                <Button variant="outline" className="w-full">
-                  Começar Grátis
-                </Button>
-              </Link>
-            </Card>
-
-            {/* Pro Plan */}
-            <Card className="p-6 md:p-8 border-2 border-primary relative hover:shadow-xl transition-all scroll-reveal bg-gradient-hero">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white">
-                Mais Popular
-              </Badge>
-              
-              <div className="mb-6">
-                <h3 className="font-heading text-2xl font-bold mb-2">Pro</h3>
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-4xl md:text-5xl font-bold">R$47,99</span>
-                  <span className="text-muted-foreground">/mês</span>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Para salões que querem crescer
-                </p>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium">Até 10 membros da equipa</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium">Marcações ilimitadas</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium">Templates WhatsApp personalizados</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium">Relatórios de lucro avançados</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium">Sistema de comissões</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium">Fidelização e vouchers</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium">Inventário incluído</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium">Suporte prioritário</span>
-                </li>
-              </ul>
-
-              <Link to="/auth" className="block">
-                <Button className="w-full bg-primary hover:bg-primary-hover shadow-glow">
-                  Experimentar 14 dias grátis
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
-            </Card>
-          </div>
-
-          <p className="text-center text-sm text-muted-foreground mt-8 scroll-reveal">
-            Todos os planos incluem 14 dias de teste grátis. Cancela quando quiseres.
-          </p>
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Planos transparentes</h2>
+          <p className="text-lg md:text-xl text-muted-foreground">Testa grátis, crescer connosco é simples.</p>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="container mx-auto px-4 py-12 md:py-20">
-        <Card className="max-w-4xl mx-auto p-8 md:p-12 gradient-primary text-white border-0 shadow-glow scroll-reveal">
-          <div className="text-center">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 drop-shadow-lg">
-              Começa hoje, grátis durante 14 dias
-            </h2>
-            <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto drop-shadow">
-              Junta-te a centenas de salões que já transformaram o negócio.
-              Sem cartão necessário, sem compromisso.
-            </p>
-            <Link to="/auth">
-              <Button size="lg" variant="secondary" className="text-base md:text-lg px-6 md:px-8 h-12 md:h-14 bg-white text-primary hover:bg-white/90">
-                Experimentar 14 dias grátis
-                <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card className="p-6 flex flex-col">
+            <div className="mb-6">
+              <h3 className="font-heading text-2xl">Grátis</h3>
+              <p className="text-muted-foreground">Ideal para começar agora mesmo.</p>
+              <div className="flex items-baseline gap-2 mt-4">
+                <span className="text-4xl font-bold">R$ 0</span>
+                <span className="text-muted-foreground">/mês</span>
+              </div>
+            </div>
+            <ul className="space-y-3 flex-1">
+              {freePlanFeatures.map((feature) => (
+                <li key={feature} className="flex items-start gap-3 text-sm">
+                  <CheckCircle2 className="w-5 h-5 text-success" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <Link to="/auth" className="mt-6">
+              <Button variant="outline" className="w-full">
+                Começar grátis
               </Button>
             </Link>
-          </div>
+          </Card>
+          <Card className="p-6 border-2 border-primary bg-gradient-hero flex flex-col">
+            <Badge className="w-fit mb-4">Mais escolhido</Badge>
+            <div className="mb-6">
+              <h3 className="font-heading text-2xl">Pro</h3>
+              <p className="text-muted-foreground">Para salões que querem crescer com dados.</p>
+              <div className="flex items-baseline gap-2 mt-4">
+                <span className="text-4xl font-bold">R$ 89</span>
+                <span className="text-muted-foreground">/mês</span>
+              </div>
+            </div>
+            <ul className="space-y-3 flex-1">
+              {proPlanFeatures.map((feature) => (
+                <li key={feature} className="flex items-start gap-3 text-sm">
+                  <CheckCircle2 className="w-5 h-5 text-primary" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <Link to="/auth" className="mt-6">
+              <Button className="w-full bg-primary hover:bg-primary-hover">
+                Assinar Pro
+              </Button>
+            </Link>
+          </Card>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="container mx-auto px-4 py-12 md:py-20">
+        <Card className="max-w-4xl mx-auto p-8 md:p-12 gradient-primary text-white border-0 shadow-glow text-center">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Começa hoje, grátis durante 14 dias</h2>
+          <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+            Junta-te a centenas de salões que já transformaram a operação. Sem cartão, cancela quando quiseres.
+          </p>
+          <Link to="/auth">
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-base md:text-lg px-6 md:px-8 h-12 md:h-14">
+              Experimentar 14 dias grátis
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
         </Card>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border mt-20">
-        <div className="container mx-auto px-4 py-12">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-heading text-xl font-bold">SalãoPro</span>
+      <footer className="border-t border-border mt-10">
+        <div className="container mx-auto px-4 py-10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white">
+              <Sparkles className="w-5 h-5" />
             </div>
-            <p className="text-sm text-muted-foreground">
-              © 2025 SalãoPro. Feito com ❤️ em Portugal.
-            </p>
+            <span className="font-heading text-xl font-bold">SalãoPro</span>
           </div>
+          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} SalãoPro · Feito em Portugal e Brasil.</p>
         </div>
       </footer>
     </div>
@@ -473,4 +381,3 @@ const Landing = () => {
 };
 
 export default Landing;
-

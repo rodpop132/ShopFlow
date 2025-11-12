@@ -15,7 +15,8 @@ import {
   X,
   Menu,
   ClipboardList,
-  TrendingDown
+  TrendingDown,
+  ShieldCheck
 } from "lucide-react";
 import { useState } from "react";
 
@@ -46,6 +47,12 @@ const Sidebar = () => {
       title: "Configurações",
       items: [
         { icon: Settings, label: "Definições", href: "/definicoes" },
+      ]
+    },
+    {
+      title: "Administração",
+      items: [
+        { icon: ShieldCheck, label: "Painel Admin", href: "/admin" },
       ]
     }
   ];
